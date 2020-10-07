@@ -62,7 +62,8 @@
                 <div class="col-md-6">
                     <input type="password"
                            class="shadow w-1/5 px-4 py-2 border-red-600 text-gray-700 text-xl mb-6 mt-2 rounded-lg bg-red-300 focus:outline-none"
-                           required autocomplete="new-password">
+                           required autocomplete="new-password"
+                           name="password_confirmation">
                 </div>
             </div>
 
