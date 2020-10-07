@@ -22,17 +22,18 @@
                         <a class="mr-6" href="{{ route('login') }}">Войти</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Зарегистрироваться</a>
+                            <a href="{{ route('register') }}">Регистрация</a>
                         @endif
                     @endauth
                 </div>
             @endif
             <div class="text-center">
-                <img class="w-1/6 rounded-lg shadow-xl mx-auto" src="\img\logo.jpg" alt="logo">
+                <img class="w-1/6 rounded-lg shadow-xl mx-auto mt-10" src="\img\logo.jpg" alt="logo">
                 <h1 class="text-4xl font-hairline text-red-600 mt-10 mb-10"><i class="fas fa-stream mr-6"></i>В прокатеe</h1>
             </div>
-            <div class="flex flex-wrap mx-auto bg-red-600 px-20 py-10">
-                <div class="bg-gray-100 px-4 py-6 mx-6 mb-6 flex-initial text-center w-1/6 hover:bg-gray-300 shadow-xl">
+
+            <div class="flex flex-wrap mx-auto bg-red-600 py-10 justify-center">
+                <div class="bg-gray-100 rounded-lg px-4 py-6 mx-2 mb-6 flex-initial text-center xl:w-1/6 lg:w-1/5 md:w-1/4 sm:w-1/2 xs:w-1/2 hover:bg-gray-300 shadow-xl">
                     <div class="text-center"><i class="fas fa-bicycle"></i></div>
                     <h1 class="text-xl font-bold text-gray-700">Название Проката</h1>
                     <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -41,7 +42,7 @@
                         <div class="flex-initial w-1/2 text-right"><i class="fas fa-star text-yellow-600"></i><span>5</span></div>
                     </div>
                 </div>
-                <div class="bg-gray-100 px-4 py-6 mx-6 mb-6 flex-initial text-center w-1/6 hover:bg-gray-300">
+                <div class="bg-gray-100 rounded-lg px-4 py-6 mx-2 mb-6 flex-initial text-center xl:w-1/6 lg:w-1/5 md:w-1/4 sm:w-1/2 xs:w-1/2 hover:bg-gray-300">
                     <div class="text-center"><i class="fas fa-bicycle"></i></div>
                     <h1 class="text-xl font-bold text-gray-700">Название Проката</h1>
                     <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -50,7 +51,7 @@
                         <div class="flex-initial w-1/2 text-right"><i class="fas fa-star text-yellow-600"></i><span>5</span></div>
                     </div>
                 </div>
-                <div class="bg-gray-100 px-4 py-6 mx-6 mb-6 flex-initial text-center w-1/6 hover:bg-gray-300">
+                <div class="bg-gray-100 rounded-lg px-4 py-6 mx-2 mb-6 flex-initial text-center xl:w-1/6 lg:w-1/5 md:w-1/4 sm:w-1/2 xs:w-1/2 hover:bg-gray-300">
                     <div class="text-center"><i class="fas fa-bicycle"></i></div>
                     <h1 class="text-xl font-bold text-gray-700">Название Проката</h1>
                     <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -59,7 +60,7 @@
                         <div class="flex-initial w-1/2 text-right"><i class="fas fa-star text-yellow-600"></i><span>5</span></div>
                     </div>
                 </div>
-                <div class="bg-gray-100 px-4 py-6 mx-6 mb-6 flex-initial text-center w-1/6 hover:bg-gray-300">
+                <div class="bg-gray-100 rounded-lg px-4 py-6 mx-2 mb-6 flex-initial text-center xl:w-1/6 lg:w-1/5 md:w-1/4 sm:w-1/2 xs:w-1/2 hover:bg-gray-300">
                     <div class="text-center"><i class="fas fa-bicycle"></i></div>
                     <h1 class="text-xl font-bold text-gray-700">Название Проката</h1>
                     <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -68,7 +69,7 @@
                         <div class="flex-initial w-1/2 text-right"><i class="fas fa-star text-yellow-600"></i><span>5</span></div>
                     </div>
                 </div>
-                <div class="bg-gray-100 px-4 py-6 mx-6 mb-6 flex-initial text-center w-1/6 hover:bg-gray-300">
+                <div class="bg-gray-100 rounded-lg px-4 py-6 mx-2 mb-6 flex-initial text-center xl:w-1/6 lg:w-1/5 md:w-1/4 sm:w-1/2 xs:w-1/2 hover:bg-gray-300">
                     <div class="text-center"><i class="fas fa-bicycle"></i></div>
                     <h1 class="text-xl font-bold text-gray-700">Название Проката</h1>
                     <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -77,7 +78,7 @@
                         <div class="flex-initial w-1/2 text-right"><i class="fas fa-star text-yellow-600"></i><span>5</span></div>
                     </div>
                 </div>
-                <div class="bg-gray-100 px-4 py-6 mx-6 mb-6 flex-initial text-center w-1/6 hover:bg-gray-300">
+                <div class="bg-gray-100 rounded-lg px-4 py-6 mx-2 mb-6 flex-initial text-center xl:w-1/6 lg:w-1/5 md:w-1/4 sm:w-1/2 xs:w-1/2 hover:bg-gray-300">
                     <div class="text-center"><i class="fas fa-bicycle"></i></div>
                     <h1 class="text-xl font-bold text-gray-700">Название Проката</h1>
                     <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>

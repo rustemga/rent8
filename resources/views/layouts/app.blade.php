@@ -23,11 +23,11 @@
 <div class="text-right p-8 bg-red-600 text-gray-100">
     <a href="/"><img class="w-1/12 rounded-lg shadow-xl" src="\img\logo.jpg" alt="logo"></a>
     @guest
-
-        <a class="mr-6 href="{{ route('login') }}">{{ __('Login') }}</a>
-
-        @if (Route::has('register'))
-            <a href="{{ route('register') }}">{{ __('Register') }}</a>
+        @if(Route::currentRouteName()!='login')
+        <a class="mr-6" href="{{ route('login') }}">Войти</a>
+        @endif
+        @if (Route::has('register')&&Route::currentRouteName()!='register')
+            <a href="{{ route('register') }}">Регистрация</a>
         @endif
     @else
 
