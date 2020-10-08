@@ -64,11 +64,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dd(request('submit_key'));
+//        $role = 'user';
+//        if(request('submit_key') == 'register_rent_service_owner') $role = 'rent_owner';
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'role' => $data['submit_key'],
             'password' => Hash::make($data['password']),
+
         ]);
     }
 }

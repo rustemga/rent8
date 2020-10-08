@@ -67,14 +67,14 @@
             <div>
                 <button type="submit"
                         name="submit_key"
-                        value="register"
+                        value="user"
                         class="uppercase px-4 py-2 bg-red-600 rounded-lg text-gray-100 text-xl font-hairline text-uppercase hover:bg-red-400 mt-6">
                     Зарегистрироваться
                 </button>
 
                 <button type="submit"
                         name="submit_key"
-                        value="registerrentserviceowner"
+                        value="rent_service_owner"
                         class="uppercase px-4 py-2 bg-blue-600 rounded-lg text-gray-100 text-xl font-hairline text-uppercase hover:bg-blue-400 mt-6">
                     Зарегистрировать свой сервис проката
                 </button>
