@@ -20,27 +20,23 @@
     <link href="{{asset('css/main.css')}}" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-<div class="text-right p-8 bg-red-600 text-gray-100">
-    <a href="/"><img class="w-1/12 rounded-lg shadow-xl" src="\img\logo.jpg" alt="logo"></a>
+<div class="text-right p-8 bg-red-600 text-gray-100 relative">
+    <a href="/"><img class="w-1/12 rounded-lg shadow-xl absolute" src="\img\logo.jpg" alt="logo"></a>
     @guest
         @if(Route::currentRouteName()!='login')
-        <a class="mr-6" href="{{ route('login') }}">Войти</a>
+            <a class="uppercase mr-6 hover:text-red-200" href="{{ route('login') }}">Войти</a>
         @endif
         @if (Route::has('register')&&Route::currentRouteName()!='register')
-            <a href="{{ route('register') }}">Регистрация</a>
+            <a class="uppercase hover:text-red-200" href="{{ route('register') }}">Регистрация</a>
         @endif
     @else
 
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false" v-pre>
-            {{ Auth::user()->name }} <span class="caret"></span>
-        </a>
-
-
-        <a class="dropdown-item" href="{{ route('logout') }}"
+        <h3 class="mr-6 inline-block">Привет, {{ Auth::user()->name }} <span class="caret"></span></h3>
+        <a href="{{ route('logout') }}"
            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
+           document.getElementById('logout-form').submit();"
+        alt="Выйти">
+            <i class="fas fa-times-circle mr-6 text-xl"></i>
         </a>
 
 

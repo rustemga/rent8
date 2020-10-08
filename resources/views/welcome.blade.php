@@ -17,19 +17,19 @@
             @if (Route::has('login'))
                 <div class="text-right p-8 bg-red-600 text-gray-100">
                     @auth
-                        <a  href="{{ url('/home') }}">Личный Кабинет</a>
+                        <a class="uppercase hover:text-red-200"  href="{{ url('/home') }}">Личный Кабинет</a>
                     @else
-                        <a class="mr-6" href="{{ route('login') }}">Войти</a>
+                        <a class="mr-6 uppercase hover:text-red-200" href="{{ route('login') }}">Войти</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Регистрация</a>
+                            <a class="uppercase hover:text-red-200" href="{{ route('register') }}">Регистрация</a>
                         @endif
                     @endauth
                 </div>
             @endif
             <div class="text-center">
                 <img class="w-1/6 rounded-lg shadow-xl mx-auto mt-10" src="\img\logo.jpg" alt="logo">
-                <h1 class="text-4xl font-hairline text-red-600 mt-10 mb-10"><i class="fas fa-stream mr-6"></i>В прокатеe</h1>
+                <h1 class="uppercase text-4xl font-hairline text-red-600 mt-10 mb-10"><i class="fas fa-stream mr-6"></i>В прокате</h1>
             </div>
 
             <div class="flex flex-wrap mx-auto bg-red-600 py-10 justify-center">
