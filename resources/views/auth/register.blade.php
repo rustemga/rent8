@@ -9,7 +9,6 @@
     <div class="p-8 text-center">
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
             <div>
                 <label
                     class="text-xl font-hairline text-gray-700 mb-2 block" for="name">Имя</label>
@@ -34,8 +33,8 @@
 
                 @error('email')
                 <span class="font-hairline text-red-400 block text-sm" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
@@ -48,8 +47,8 @@
 
                 @error('password')
                 <span class="font-hairline text-red-400 block text-sm" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 

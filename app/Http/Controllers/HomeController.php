@@ -23,6 +23,27 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        switch (auth()-> user() ->role) {
+            case 'rent_service_owner';
+                $currentView = 'homeRentServiceOwner';
+                break;
+            case 'admin';
+                $currentView = 'homeAdmin';
+                break;
+            default:
+                $currentView = 'home';
+        }
+
+        return view($currentView);
+    }
+
+    public function indexAdmin()
+    {
+        return view('homeAdmin');
+    }
+
+    public function indexRentOwner()
+    {
+        return view('homeRentServiceOwner');
     }
 }

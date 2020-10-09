@@ -3,11 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -56,6 +62,29 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function register(Request $request)
+    {
+        if($request -> input('submit_key') != 'rent_service_owner'){
+            $redirectRoute = 'home';
+        }else{
+            $redirectRoute = 'homeRentOwner';
+        }
+
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 201)
+            : redirect()->route($redirectRoute);
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -64,15 +93,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-//        $role = 'user';
-//        if(request('submit_key') == 'register_rent_service_owner') $role = 'rent_owner';
-
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'role' => $data['submit_key'],
             'password' => Hash::make($data['password']),
-
+            'role' => $data['submit_key'],
         ]);
     }
+
 }
