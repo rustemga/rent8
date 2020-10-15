@@ -55,11 +55,16 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = [
+            'required' => 'Поле :attribute обязательно к заполнению',
+            'unique' => 'Такой :attribute уже зарегистрирован.',
+            'confirmed' => 'Подтверждение пароля не верно или не заполнено'
+        ];
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ], $messages);
     }
 
     public function register(Request $request)

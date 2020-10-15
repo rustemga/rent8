@@ -7,6 +7,13 @@
     </div>
 
     <div class="p-8 text-center">
+        @if($errors->any())
+        @foreach($errors->all() as $error)
+            <ul>
+                <li>{{$error}}</li>
+            </ul>
+            @endforeach
+        @endif
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div>
@@ -15,7 +22,7 @@
                 <input
                     class="border-b-2 shadow xl:w-1/5 lg:w-1/3 md:w-1/3 sm:w-1/2 px-4 py-2 border-red-600 text-gray-700 text-xl rounded-lg focus:outline-none"
                     type="text" name="name"
-                    value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    value="{{ old('name') }}" autocomplete="name" autofocus>
 
                 @error('name')
                 <span class="font-hairline text-red-400 block text-sm" role="alert">
@@ -29,7 +36,7 @@
                 <label for="email" class="text-xl font-hairline text-gray-700 mb-2 block mt-6">E-Mail</label>
                 <input type="email"
                        class="border-b-2 shadow xl:w-1/5 lg:w-1/3 md:w-1/3 sm:w-1/2 px-4 py-2 border-red-600 text-gray-700 text-xl rounded-lg focus:outline-none"
-                       name="email" value="{{ old('email') }}" required autocomplete="email">
+                       name="email" value="{{ old('email') }}" autocomplete="email">
 
                 @error('email')
                 <span class="font-hairline text-red-400 block text-sm" role="alert">
@@ -43,7 +50,7 @@
                        class="text-xl font-hairline text-gray-700 mb-2 block mt-6">Пароль</label>
                 <input type="password"
                        class="border-b-2 shadow xl:w-1/5 lg:w-1/3 md:w-1/3 sm:w-1/2 px-4 py-2 border-red-600 text-gray-700 text-xl rounded-lg focus:outline-none"
-                       name="password" required autocomplete="new-password">
+                       name="password">
 
                 @error('password')
                 <span class="font-hairline text-red-400 block text-sm" role="alert">
@@ -59,7 +66,7 @@
 
                 <input type="password"
                        class="border-b-2 shadow xl:w-1/5 lg:w-1/3 md:w-1/3 sm:w-1/2 px-4 py-2 border-red-600 text-gray-700 text-xl rounded-lg focus:outline-none"
-                       required autocomplete="new-password"
+{{--                       required autocomplete="new-password"--}}
                        name="password_confirmation">
             </div>
 
