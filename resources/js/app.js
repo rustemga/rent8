@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import VueRouter from 'vue-router';
 
 /**
  * The following block of code may be used to automatically register your
