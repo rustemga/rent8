@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 
+import router from "./router";
+import App from "./components/App"
 window.Vue = require('vue');
 
 /**
@@ -21,6 +23,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('rents-component', require('./components/RentsComponent.vue').default);
+Vue.component('foo-component', require('./components/FooComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28,6 +31,9 @@ Vue.component('rents-component', require('./components/RentsComponent.vue').defa
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 const app = new Vue({
     el: '#app',
+    //render : h => h(App),
+    router
 });
