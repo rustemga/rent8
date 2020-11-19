@@ -25,6 +25,6 @@
     },
     "dependencies": {
         "tailwindcss": "^1.8.11",
-        "vue-router": "^3.4.8"
+        "vue-router": "^3.4.9"
     }
 }

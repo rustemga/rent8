@@ -47,7 +47,7 @@
     @endguest
 </div>
 
-<main class="flex-center position-ref full-height">
+<main id="app" class="flex-center position-ref full-height">
     @yield('content')
 </main>
 </body>

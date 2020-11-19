@@ -1,14 +1,18 @@
-import Router from 'vue-router';
-import Users from './components/Users'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Foo from './components/FooComponent';
+import Bar from './components/BarComponent';
+import RentsComponent from './components/RentsComponent'
 
-Vue.use(Router) //регистрируем роутер как плагин
+Vue.use(VueRouter) //регистрируем роутер как плагин
 
-export default new Router({//новый экземпляр класса Router с объектом в конструкторе
+const routes = [
+    { path: '/', component: RentsComponent },
+    { path: '/foo', component: Foo },
+    { path: '/bar', component: Bar }
+]
+
+export default new VueRouter({//новый экземпляр класса Router с объектом в конструкторе
     mode: 'history',
-    routes: [
-        {
-            path: '/',
-            component: Users
-        }
-    ]
+    routes
 })
