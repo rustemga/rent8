@@ -50,7 +50,7 @@
             @if (Route::has('password.request'))
                 <a class="uppercase text-sm font-hairline text-gray-700 hover:text-red-700 text-uppercase"
                    href="{{ route('password.request') }}">
-                    Не помнишь пароль?
+                    Не помню пароль :(
                 </a>
             @endif
 
