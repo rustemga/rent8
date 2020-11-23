@@ -14,6 +14,13 @@
             @endif
         </div>
     </div>
+    <div class="p-8 text-center">
+        <div>
+            <router-link to="/rent-register">Register Rent</router-link>
+            <router-view>
+            </router-view>
+        </div>
+    </div>
 
 
 

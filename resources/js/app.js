@@ -7,8 +7,10 @@
 require('./bootstrap');
 
 import router from "./router";
+import form from "./form";
 import App from "./components/App"
 window.Vue = require('vue');
+window.Form = form;
 
 /**
  * The following block of code may be used to automatically register your
@@ -24,6 +26,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('rents-component', require('./components/RentsComponent.vue').default);
 Vue.component('foo-component', require('./components/FooComponent.vue').default);
+Vue.component('rent-register', require('./components/RentRegisterFormComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

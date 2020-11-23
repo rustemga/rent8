@@ -15,9 +15,12 @@ class CreateRentsTable extends Migration
     {
         Schema::create('rents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('rent_name');
+            $table->unsignedBigInteger('user_id');
+            $table->string('rent_name', 150);
             $table->text('rent_description');
+            $table->text('img');
+            $table->boolean('published')->default(false);
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
