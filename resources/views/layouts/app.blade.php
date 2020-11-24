@@ -32,6 +32,12 @@
     @else
 
         <h3 class="mr-6 inline-block">Привет, {{ Auth::user()->name }} <span class="caret"></span></h3>
+        @if (Route::currentRouteName()!='home')
+        <a href="{{ route('home') }}"
+           alt="Личный кабинет">
+            <i class="fas fa-home mr-6 text-xl"></i>
+        </a>
+        @endif
         <a href="{{ route('logout') }}"
            onclick="event.preventDefault();
            document.getElementById('logout-form').submit();"
