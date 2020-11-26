@@ -9,6 +9,7 @@
     <p>
         <router-link to="/foo">Перейти к Foo</router-link>
         <router-link to="/bar">Перейти к Bar</router-link>
+        <router-link to="/rent-register">Перейти к форме</router-link>
     </p>
     <router-view>
     </router-view>
@@ -20,3 +21,9 @@
 @endsection
 
 
+<script>
+    import RentRegisterFormComponent from "../js/components/RentRegisterFormComponent";
+    export default {
+        components: {RentRegisterFormComponent}
+    }
+</script>

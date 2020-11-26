@@ -191,3 +191,5 @@ class Form {
         this.errors.record(errors);
     }
 }
+
+export default Form;

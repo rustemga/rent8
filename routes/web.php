@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $categories = \App\Models\Categories::get();
+    return view('welcome')->with('categories', $categories);
 });
 
 Auth::routes();
@@ -22,3 +24,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home-admin', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('homeAdmin');
 Route::get('/home-rent-service-owner', [App\Http\Controllers\HomeController::class, 'indexRentOwner'])->name('homeRentOwner');
+Route::get('/get-categories', [App\Http\Controllers\CategoriesController::class, 'show']);
