@@ -25,3 +25,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/home-admin', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('homeAdmin');
 Route::get('/home-rent-service-owner', [App\Http\Controllers\HomeController::class, 'indexRentOwner'])->name('homeRentOwner');
 Route::get('/get-categories', [App\Http\Controllers\CategoriesController::class, 'show']);
+Route::post('/rent/store', [App\Http\Controllers\RentsController::class, 'store']);

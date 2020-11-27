@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function current_user(){
         return $this;
     }
+
+    public function rents(){
+        return $this->hasMany(Rents::class);
+    }
 }

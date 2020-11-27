@@ -11,11 +11,20 @@ class Rents extends Model
     use HasFactory;
 
     protected $fillable = [
-        'rent_name', 'rent_description',
+        'user_id',
+        'rent_name',
+        'rent_description',
+        'img',
+        'published'
+
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function categories(){
+        return $this->hasMany(Categories::class);
     }
 }
