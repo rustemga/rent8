@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Categories;
+use App\Models\Rents;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class categoriesFactory extends Factory
@@ -22,7 +23,8 @@ class categoriesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->title,
+            'description' => $this->faker->paragraph,
         ];
     }
 }

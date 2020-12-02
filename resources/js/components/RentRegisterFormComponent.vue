@@ -4,71 +4,72 @@
             Rent</h3>
 
         <form method="POST"
-              action=""
               class="flex"
               enctype="multipart/form-data"
-            @submit.prevent="submitRent">
+              @submit.prevent="submitRent">
             <div class="flex-1">
                 <div>
                     <label
                         class="text-xl font-hairline text-gray-700 mb-2 block">Название</label>
+                        <span class="font-hairline text-red-400 block text-sm" role="alert"
+                              v-show="form.errors.has('rent_name')">
+                            <strong>{{ form.errors.get('rent_name') }}</strong>
+                        </span>
                     <input
                         class="border-b-2 shadow w-1/2 px-4 py-2 border-red-600 text-gray-700 text-xl rounded-lg focus:outline-none"
-                        :class="{'border-red-900' : form.errors.has('rent_name')}"
+                        :class="{'bg-red-200' : form.errors.has('rent_name')}"
                         type="text"
                         name="rent_name"
                         value="" autofocus
                         v-model="form.rent_name"
                         @keydown="form.errors.clear('rent_name')">
-                    <span class="font-hairline text-red-400 block text-sm" role="alert"
-                        v-show="form.errors.has('rent_name')">
-                        <strong>{{ form.errors.get('rent_name') }}</strong>
-                    </span>
+
                 </div>
 
                 <div>
                     <label
                         class="text-xl font-hairline text-gray-700 mb-2 block">Категория</label>
+                    <span class="font-hairline text-red-400 block text-sm" role="alert"
+                          v-show="form.errors.has('category_id')">
+                        <strong>{{ form.errors.get('category_id') }}</strong>
+                    </span>
                     <select
-                        :class="{'' : form.errors.has('category_id')}"
+                        :class="{'bg-red-200' : form.errors.has('category_id')}"
                         v-model="form.category_id"
                         class="border-b-2 shadow w-1/2 px-4 py-2 border-red-600 text-gray-700 text-xl rounded-lg focus:outline-none"
                         name="category_id"
                         value="">
                         <option v-for="category in this.categories" v-bind:value="category.id">{{category.title}}</option>
                     </select>
-                    <span class="font-hairline text-red-400 block text-sm" role="alert"
-                          v-show="form.errors.has('category_id')">
-                        <strong>{{ form.errors.get('category_id') }}</strong>
-                    </span>
+
                 </div>
 
                 <div>
                     <label class="text-xl font-hairline text-gray-700 mb-2 block mt-6">Изображение</label>
-                    <input
-                        type="file"
-                        name="img"
-                        id="img"
-                        :class="{'' : form.errors.has('img')}"
-                    >
                     <span class="font-hairline text-red-400 block text-sm" role="alert"
                           v-show="form.errors.has('img')">
                         <strong>{{ form.errors.get('img') }}</strong>
                     </span>
+                    <input
+                        type="file"
+                        name="img"
+                        id="img"
+                        :class="{'bg-red-200' : form.errors.has('img')}">
                 </div>
 
                 <div>
                     <label
                         class="text-xl font-hairline text-gray-700 mb-2 block mt-6 inline-block">Опубликовать</label>
-
+                    <span class="font-hairline text-red-400 block text-sm" role="alert"
+                          v-show="form.errors.has('published')">
+                        <strong>{{ form.errors.get('published') }}</strong>
+                    </span>
                     <input type="checkbox"
+                           v-model="form.published"
                            class="border-b-2 shadow border-red-600 rounded-lg focus:outline-none"
                            name="published"
-                           :class="{'' : form.errors.has('published')}">
-                    <span class="font-hairline text-red-400 block text-sm" role="alert"
-                          v-show="form.errors.has('img')">
-                        <strong>{{ form.errors.get('img') }}</strong>
-                    </span>
+                           :class="{'bg-red-200' : form.errors.has('published')}">
+                    <p>{{form.published}}</p>
                 </div>
 
                 <div>
@@ -82,14 +83,14 @@
 
             <div class="flex-1">
                 <label class="text-xl font-hairline text-gray-700 mb-2 block">Краткое описание</label>
+                <span class="font-hairline text-red-400 block text-sm" role="alert" v-show="form.errors.has('description')">
+                    <strong>{{ form.errors.get('description') }}</strong>
+                </span>
                 <div class="mx-auto shadow px-4 py-2 text-gray-700 text-xl rounded-lg focus:outline-none">
                     <vue-editor
                         v-model="form.description"
-                        :class="{'' : form.errors.has('published')}"></vue-editor>
+                        :class="{'bg-red-200' : form.errors.has('description')}"></vue-editor>
                 </div>
-                <span class="font-hairline text-red-400 block text-sm" role="alert" v-show="form.errors.has('img')">
-                    <strong>{{ form.errors.get('img') }}</strong>
-                </span>
             </div>
             <!--            <div>-->
             <!--                <label-->
@@ -137,13 +138,15 @@ export default {
     data() {
         return {
             categories: [],
+            published: '',
             form: new Form({
                 rent_name: '',
                 category_id: '1',
                 img: '',
                 description: '<p>Введите описание ...</p>',
-                published: '',
+                published: false,
             }),
+
         };
     },
     mounted() {
@@ -157,16 +160,32 @@ export default {
         },
         submitRent(){
             let data = new FormData();
+            if(this.form.published){
+                this.published = 1;
+            }else{
+                this.published = 0;
+            }
             data.append('rent_name', this.form.rent_name);
             data.append('category_id', this.form.category_id);
             data.append('description', this.form.description);
-            data.append('published', this.form.published);
-            if(document.getElementById('img').files[0]){data.append('img', document.getElementById('img').file[0])};
+            data.append('published', this.published);
+            if(document.getElementById('img').files[0]){data.append('img', document.getElementById('img').files[0])}
 
-            axios.post('/rent/store', data)
-            .then((response)=>{
+            axios.post('/rent-store', data)
+                .then((response)=>{
+                    console.log('Form is sending!');
+                })
+                .then((response)=>{
                 this.form.reset();
             }).catch(error => this.form.errors.record(error.response.data));
+
+            // axios({
+            //     method: 'get',
+            //     url:'/rent-store',
+            //     data: data,
+            // }).then((response) => {
+            //     this.data = response.data
+            // });
         }
         },
 
