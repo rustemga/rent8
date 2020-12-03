@@ -29,6 +29,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('rents-component', require('./components/RentsComponent.vue').default);
 Vue.component('foo-component', require('./components/FooComponent.vue').default);
 Vue.component('rent-register', require('./components/RentRegisterFormComponent.vue').default);
+Vue.component('rent-item', require('./components/RentsItemComponent.vue').default);
 
 
 /**

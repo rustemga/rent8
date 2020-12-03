@@ -9,7 +9,6 @@ import RentOwnerHome from './components/RentOwherHomeComponent';
 Vue.use(VueRouter) //регистрируем роутер как плагин
 
 const routes = [
-    { path: '/', component: RentsComponent },
     { path: '/foo', component: Foo },
     { path: '/bar', component: Bar },
     { path: '/rent-register', component: RentRegister },

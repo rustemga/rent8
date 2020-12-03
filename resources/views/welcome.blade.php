@@ -6,7 +6,6 @@
         <h1 class="uppercase text-4xl font-hairline text-red-600 mt-10 mb-10"><i class="fas fa-stream mr-6"></i>В
             прокате</h1>
     </div>
-    <rent-register></rent-register>
     <p>
         <router-link to="/foo">Перейти к Foo</router-link>
         <router-link to="/bar">Перейти к Bar</router-link>
@@ -16,8 +15,9 @@
     </router-view>
     <div class="flex flex-wrap mx-auto bg-red-600 py-10 justify-center">
         @foreach(range(1, 17) as $index)
-            <rents-component></rents-component>
         @endforeach
+            <rents-component></rents-component>
+
     </div>
 @endsection
 

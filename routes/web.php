@@ -26,3 +26,4 @@ Route::get('/home-admin', [App\Http\Controllers\HomeController::class, 'indexAdm
 Route::get('/home-rent-service-owner', [App\Http\Controllers\HomeController::class, 'indexRentOwner'])->name('homeRentOwner')->middleware('auth');
 Route::get('/get-categories', [App\Http\Controllers\CategoriesController::class, 'show']);
 Route::post('/rent-store', [App\Http\Controllers\RentsController::class, 'store'])->middleware('auth');
+Route::get('/get-rents', [App\Http\Controllers\RentsController::class, 'show']);

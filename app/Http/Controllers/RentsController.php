@@ -36,4 +36,8 @@ class RentsController extends Controller
         return redirect(route('home'));
     }
 
+    public function show(){
+        return Rents::get();
+    }
+
 }
