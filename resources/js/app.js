@@ -30,6 +30,8 @@ Vue.component('rents-component', require('./components/RentsComponent.vue').defa
 Vue.component('foo-component', require('./components/FooComponent.vue').default);
 Vue.component('rent-register', require('./components/RentRegisterFormComponent.vue').default);
 Vue.component('rent-item', require('./components/RentsItemComponent.vue').default);
+Vue.component('loader', require('./components/LoaderComponent.vue').default);
+Vue.component('filters-rents', require('./components/RetsFilterComponent.vue').default);
 
 
 /**

@@ -13,11 +13,8 @@
     </p>
     <router-view>
     </router-view>
-    <div class="flex flex-wrap mx-auto bg-red-600 py-10 justify-center">
-        @foreach(range(1, 17) as $index)
-        @endforeach
-            <rents-component></rents-component>
-
+    <div class="mx-auto bg-red-600 py-10">
+        <rents-component></rents-component>
     </div>
 @endsection
 
